@@ -2,7 +2,7 @@
   <label class="control-label {{form.labelHtmlClass}}"
          sf-field-model schema-validate="form"
          ng-show="showTitle()">{{form.title}}</label>
-  <div class="radio" ng-repeat="item in form.titleMap">
+  <div class="radio" sf-field-model="replaceAll" ng-class="{'hidden-print': $$value$$ !== item.value}" ng-repeat="item in form.titleMap">
     <label>
       <input type="radio"
              class="{{form.fieldHtmlClass}}"

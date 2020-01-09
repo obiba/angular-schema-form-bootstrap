@@ -1,13 +1,16 @@
 <div class="form-group has-feedback {{form.htmlClass}} schema-form-textarea" ng-controller="TextAreaController"
      ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true &&  hasSuccess()}">
-  <label class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title}}</label>
-  <p class="visible-print" ng-show="form.key"
-     class="{{form.fieldHtmlClass}}"
-     sf-field-model="replaceAll"
-     aria-describedby="{{form.key.slice(-1)[0] + 'Status'}}" ng-bind-html="$$value$$"></p>
-
+  <div class="visible-print" sf-field-model="replaceAll" ng-show="$$value$$">
+    <label class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title}}</label>
+    <p ng-show="form.key"
+       class="{{form.fieldHtmlClass}}"
+       sf-field-model="replaceAll"
+       aria-describedby="{{form.key.slice(-1)[0] + 'Status'}}" ng-bind-html="$$value$$"></p>  
+  </div>
+  
   <!-- TODO check marks are not shown, should be fixed -->
   <div class="hidden-print">
+    <label class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title}}</label>
     <div sf-field-model="replaceAll" ng-if="form.readonly && form.marked" ng-bind-html="render($$value$$)"></div>
 
     <textarea ng-if="!form.fieldAddonLeft && !form.fieldAddonRight && (!form.readonly || !form.marked)"

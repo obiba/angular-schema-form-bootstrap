@@ -4,7 +4,7 @@
         ng-show="showTitle()" sf-field-model
         schema-validate="form" >{{form.title}}</label>
   <div>
-      <label class="radio-inline" ng-repeat="item in form.titleMap" >
+      <label class="radio-inline" sf-field-model="replaceAll" ng-class="{'hidden-print': $$value$$ !== item.value}" ng-repeat="item in form.titleMap" >
       <input type="radio"
              class="{{form.fieldHtmlClass}}"
              sf-changed="form"
